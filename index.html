@@ -1,194 +1,222 @@
-<!doctype html>
-<html lang="en" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-black">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0B1220" />
   <title>$NARR — Ride the Meme Wave</title>
-
-  <!-- Fonts + Tailwind -->
-  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            narpe: { teal:'#16c7be', deep:'#0b1833', gold:'#ffd75e', ice:'#e6f7f7', violet:'#6a00ff', night:'#001f4d' }
-          },
-          fontFamily: {
-            display:['Luckiest Guy','system-ui','sans-serif'],
-            sans:['Inter','system-ui','sans-serif']
-          },
-          dropShadow: { cartoon: '0 3px 0 rgba(0,0,0,.45)' }
-        }
-      }
-    }
-  </script>
-
-  <!-- Social share -->
-  <meta property="og:title" content="$NARR — Ride the Meme Wave">
-  <meta property="og:description" content="A community driven memecoin on the Abstract chain. Monthly mini games, weekly giveaways, collabs, and a major Dapp coming soon.">
-  <meta property="og:image" content="og_narpe.jpg">
-  <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="theme-color" content="#6a00ff">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="$NARR — Ride the Meme Wave">
-  <meta name="twitter:description" content="The narwhal taking on the penguin meta. Monthly mini games, weekly giveaways & a future major Dapp.">
-  <meta name="twitter:image" content="og_narpe.jpg">
-  <meta name="twitter:site" content="@NarrTheNarwhal">
-
   <style>
-    .headline-outline{
-      text-shadow:2px 2px 0 #000,-2px 2px 0 #000,2px -2px 0 #000,-2px -2px 0 #000
-    }
-    .hero-bg{
-      background:
-        linear-gradient(180deg, rgba(106,0,255,.75), rgba(0,31,77,.85)),
-        url('narpe_background.jpeg') center/cover no-repeat;
-    }
+    .glass{background:rgba(255,255,255,.08);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.12)}
+    .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.10)}
+    .shadow-deep{box-shadow:0 8px 30px rgba(0,0,0,.35)}
+    html{scroll-behavior:smooth}
+    .brand-grad{background:linear-gradient(90deg,#19E3D6 0%,#8EF8D0 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .title-shadow{text-shadow:0 3px 10px rgba(0,0,0,.65), 0 1px 0 rgba(0,0,0,.8)}
+    .chip-shadow{text-shadow:0 2px 6px rgba(0,0,0,.55)}
+    .hl-yellow{color:#F7D047;font-weight:800}
+    .no-shadow{ text-shadow:none !important; filter:none !important; }
   </style>
 </head>
-<body class="bg-narpe-deep text-white font-sans">
+<body class="min-h-full text-white selection:bg-teal-300 selection:text-black">
 
-  <!-- HEADER / HERO -->
-  <header class="relative hero-bg">
-    <div class="absolute inset-0 bg-black/20"></div>
-
-    <div class="relative max-w-6xl mx-auto px-4 py-16 lg:py-24 grid lg:grid-cols-2 gap-10 items-center">
-      <div>
-        <h1 class="font-display text-5xl sm:text-6xl leading-tight headline-outline">
-          Ride the Meme Wave
-          <span class="block text-narpe-teal drop-shadow-cartoon">$NARR on Abstract</span>
-        </h1>
-
-        <p class="mt-5 text-lg text-white/90 max-w-xl">
-          A community-driven memecoin on Abstract. The narwhal flipping the penguin meta with sharper visuals, louder presence, and real momentum.
-        </p>
-
-        <div class="mt-7 flex flex-wrap gap-3">
-          <a href="https://dexscreener.com/abstract/0x6d16c2a285de1b8652868ed9d36a12f7ffb4573c" class="px-5 py-3 rounded-xl bg-narpe-teal text-narpe-deep font-extrabold drop-shadow-cartoon hover:scale-[1.02] transition">DEXScreener</a>
-          <a href="https://x.com/NarrTheNarwhal?t=MYg_uEeM-DReqKwPrDvA7Q&s=09" class="px-5 py-3 rounded-xl bg-white/10 border border-white/15 hover:bg-white/15 transition">Twitter / X</a>
-          <a href="https://t.me/NarrTheNarwhalonabs" class="px-5 py-3 rounded-xl bg-white/10 border border-white/15 hover:bg-white/15 transition">Telegram</a>
+  <!-- NAV -->
+  <header class="fixed top-0 inset-x-0 z-40">
+    <div class="mx-auto max-w-6xl px-4 py-3">
+      <div class="flex items-center justify-between rounded-2xl bg-[#0B1220]/80 backdrop-blur-sm border border-white/10 px-4 py-2 shadow-deep">
+        <div class="font-extrabold text-xl">
+          <span class="brand-grad">$</span><span class="brand-grad">NARR</span>
         </div>
-
-        <div class="mt-6 space-y-2">
-          <div class="text-sm text-white/85">Chain: <span class="font-semibold text-white">Abstract</span></div>
-          <div class="text-sm text-white/85">
-            Contract (CA): <code id="ca" class="bg-black/40 px-2 py-1 rounded">0x7797B9b0D81EbA4ED67f7D4da90bAbce410C0b07</code>
-            <button onclick="copyCA()" class="ml-2 text-xs px-3 py-1.5 rounded bg-narpe-gold text-black font-bold hover:opacity-90 transition">Copy</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="relative">
-        <img src="og_narpe.jpg" alt="Narwhal hero" class="w-full rounded-2xl shadow-2xl object-cover">
+        <button onclick="toggleMenu()" class="rounded-2xl border border-white/20 px-4 py-2 text-white/90 hover:bg-white/10 transition">Menu</button>
       </div>
     </div>
   </header>
 
-  <!-- CONTENT SECTIONS -->
+<!-- Drawer over hero -->
+<div id="drawer" class="fixed inset-0 z-50 hidden">
+  <!-- overlay (capte le clic pour fermer) -->
+  <div class="absolute inset-0 bg-black/30" onclick="toggleMenu()"></div>
+
+  <!-- panneau (au-dessus de l'overlay) -->
+  <div class="relative z-10 mx-4 mt-24 rounded-3xl bg-black text-white border border-white/10 p-4 shadow-deep"
+       onclick="event.stopPropagation()">
+    <a href="https://dexscreener.com/abstract/0x6d16c2a285de1b8652868ed9d36a12f7ffb4573c" target="_blank" rel="noopener"
+       class="block px-4 py-3 rounded-xl hover:bg-white/10">DEXScreener</a>
+    <a href="https://x.com/NarrTheNarwhal" target="_blank" rel="noopener"
+       class="block px-4 py-3 rounded-xl hover:bg-white/10">X</a>
+    <a href="https://t.me/NarrTheNarwhalonabs" target="_blank" rel="noopener"
+       class="block px-4 py-3 rounded-xl hover:bg-white/10">Telegram</a>
+  </div>
+</div>
+
+  <!-- HERO -->
+  <section id="hero" class="relative min-h-[100svh] md:min-h-[92vh] overflow-hidden">
+    <div class="absolute inset-0">
+      <video class="absolute inset-0 w-full h-full object-cover" autoplay muted playsinline loop poster="/hero.jpeg">
+        <source src="/hero.mp4" type="video/mp4" />
+      </video>
+      <div class="absolute inset-0 bg-black/30"></div>
+    </div>
+
+    <div class="relative max-w-6xl mx-auto px-4 pt-32 pb-12 h-full flex items-end md:items-center">
+      <div class="w-full rounded-3xl glass p-6 sm:p-8 md:p-10 text-white shadow-deep md:translate-y-6">
+        <h1 class="font-extrabold leading-tight text-4xl sm:text-5xl lg:text-6xl title-shadow">
+          Ride the Meme Wave
+          <span class="block brand-grad no-shadow">$NARR on Abstract</span>
+        </h1>
+
+        <!-- Badges -->
+        <div class="flex flex-wrap gap-2 mt-5 chip-shadow">
+          <span class="inline-flex items-center gap-2 rounded-2xl bg-white/10 border border-white/15 px-3 py-1.5 text-sm md:text-xs">
+            <span class="text-white/70">Chain:</span> <span class="font-semibold">Abstract</span>
+          </span>
+
+          <!-- CA row -->
+          <span class="inline-flex items-center gap-2 rounded-2xl bg-white/10 border border-white/15 px-3 py-1.5 text-sm md:text-xs max-w-full">
+            <span class="text-white/70">CA:</span>
+            <code id="ca" class="tracking-tight truncate max-w-[56vw] sm:max-w-[46vw] md:max-w-[36vw]">
+              0x7797B9b0D81EbA4ED67f7D4da90bAbce410C0b07
+            </code>
+            <button onclick="copyCA()" class="shrink-0 rounded-lg bg-yellow-300 text-black text-xs font-bold px-2 py-1">Copy</button>
+          </span>
+        </div>
+
+        <!-- CTAs -->
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a href="https://dexscreener.com/abstract/0x6d16c2a285de1b8652868ed9d36a12f7ffb4573c"
+             class="px-5 py-3 rounded-xl bg-[#19E3D6] text-black font-bold shadow-lg shadow-[#19E3D6]/30 hover:scale-[1.02] transition">DEXScreener</a>
+          <a href="https://x.com/NarrTheNarwhal"
+             class="px-5 py-3 rounded-xl bg-white/20 border border-white/30 text-white hover:bg-white/30 transition">X</a>
+          <a href="https://t.me/NarrTheNarwhalonabs"
+             class="px-5 py-3 rounded-xl bg-white/20 border border-white/30 text-white hover:bg-white/30 transition">Telegram</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-black"></div>
+  </section>
+
+  <!-- OG image -->
+  <section class="max-w-5xl mx-auto px-4 pt-10 pb-6">
+    <img src="/og_narpe.jpg" alt="NARR OG artwork"
+         class="w-full rounded-3xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.4)] object-cover" />
+  </section>
+
+  <!-- CONTENT -->
   <main>
-    <!-- The Counter Meta -->
-    <section id="countermeta" class="max-w-6xl mx-auto px-4 py-12 lg:py-16">
-      <h2 class="font-display text-3xl sm:text-4xl mb-4 text-narpe-teal">The Counter Meta</h2>
-      <div class="rounded-2xl p-6" style="background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.15);">
-        <p class="text-white/90">
-          Timelines got buried by penguins, cute, safe, predictable. Then a horn cut through the water. <span class="font-semibold">$NARR</span> arrived. If they waddle we spear. If they echo we make noise. The feed needed a new main character and we showed up with a wave.
-        </p>
+    <section id="what" class="max-w-6xl mx-auto px-4 py-12 sm:py-16">
+      <h2 class="font-extrabold text-3xl sm:text-4xl mb-3">
+        <span class="brand-grad">WHAT $NARR IS</span>
+      </h2>
+      <div class="rounded-2xl card p-6 text-white/90">
+        A community driven token built for speed, with sharp visuals and a character you can spot from a mile away.
+        No corporate fluff, just culture, momentum and a crew that ships.
       </div>
     </section>
 
-    <!-- What $NARR Is -->
-    <section id="what" class="max-w-6xl mx-auto px-4 py-12 lg:py-16">
-      <h2 class="font-display text-3xl sm:text-4xl mb-4 text-narpe-teal">What $NARR Is</h2>
-      <div class="rounded-2xl p-6" style="background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.15);">
-        <p class="text-white/90">
-          A community driven token built for speed, with sharp visuals, relentless memes and a character you can spot from a mile away. No corporate fluff, just culture, momentum and a crew that ships.
-        </p>
+    <section id="meta" class="max-w-6xl mx-auto px-4 py-12 sm:py-16">
+      <h2 class="font-extrabold text-3xl sm:text-4xl mb-3">
+        <span class="brand-grad">THE COUNTER META</span>
+      </h2>
+      <div class="rounded-2xl card p-6 text-white/90">
+        Timelines got buried by penguins, cute, safe, predictable. Then a horn cut through the water. $NARR arrived.
+        If they waddle we spear. If they echo we make noise. The feed needed a new main character and we showed up with a wave.
       </div>
     </section>
 
-    <!-- The Legend -->
-    <section id="legend" class="max-w-6xl mx-auto px-4 py-12 lg:py-16">
-      <h2 class="font-display text-3xl sm:text-4xl mb-4 text-narpe-teal">The Legend</h2>
-      <div class="rounded-2xl p-6" style="background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.15);">
-        <p class="text-white/90">
-          On an ocean ruled by penguins a narwhal surfaced, horn shining, grin wide, and took the current. Every chart is water and water belongs to the narwhal.
-        </p>
+    <section id="legend" class="max-w-6xl mx-auto px-4 py-12 sm:py-16">
+      <h2 class="font-extrabold text-3xl sm:text-4xl mb-3">
+        <span class="brand-grad">THE LEGEND</span>
+      </h2>
+      <div class="rounded-2xl card p-6 text-white/90">
+        On an ocean ruled by penguins a narwhal surfaced, horn shining, grin wide, and took the current.
+        Every chart is water and water belongs to the narwhal.
       </div>
     </section>
 
-    <!-- Planned Features -->
-    <section id="features" class="max-w-6xl mx-auto px-4 py-12 lg:py-16">
-      <h2 class="font-display text-3xl sm:text-4xl mb-6 text-narpe-teal">Planned Features</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="rounded-2xl p-6" style="background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.15);">
-          <div class="text-narpe-gold font-extrabold mb-2">Weekly Events & Giveaways</div>
-          <p class="text-white/85 text-sm">Raids, contests, surprises. Every week is a new wave.</p>
+    <!-- PLANNED FEATURES split in 3 cards -->
+    <section id="features" class="max-w-6xl mx-auto px-4 py-12 sm:py-16">
+      <h2 class="font-extrabold text-3xl sm:text-4xl mb-6">
+        <span class="brand-grad">PLANNED FEATURES</span>
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="rounded-2xl card p-6">
+          <h3 class="hl-yellow text-xl mb-2">Weekly Events & Giveaways</h3>
+          <p class="text-white/90">Raids, contests, surprises. Every week is a new wave.</p>
         </div>
-        <div class="rounded-2xl p-6" style="background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.15);">
-          <div class="text-narpe-gold font-extrabold mb-2">Collabs & Community Raids</div>
-          <p class="text-white/85 text-sm">Cross project stunts with Abstract friends, coordinated meme raids and playful rivalry with the penguin crowd.</p>
+        <div class="rounded-2xl card p-6">
+          <h3 class="hl-yellow text-xl mb-2">Collabs & Community Raids</h3>
+          <p class="text-white/90">Cross-project stunts with Abstract friends, coordinated meme raids and playful rivalry with the penguin crowd.</p>
         </div>
-        <div class="rounded-2xl p-6" style="background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.15);">
-          <div class="text-narpe-gold font-extrabold mb-2">Major Future Dapp</div>
-          <p class="text-white/85 text-sm">In the works with details to be revealed soon.</p>
+        <div class="rounded-2xl card p-6">
+          <h3 class="hl-yellow text-xl mb-2">Major Future Dapp</h3>
+          <p class="text-white/90">In the works with details to be revealed soon.</p>
         </div>
       </div>
     </section>
 
-    <!-- The Playbook -->
-    <section id="playbook" class="max-w-6xl mx-auto px-4 py-12 lg:py-16">
-      <h2 class="font-display text-3xl sm:text-4xl mb-4 text-narpe-teal">The Playbook</h2>
-      <div class="rounded-2xl p-6" style="background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.15);">
-        <p class="text-white/90">
-          Run weekly events. Drop surprise giveaways. Highlight the best community posts. Share art people actually use as PFPs. Every moment becomes movement, every wave builds momentum.
-        </p>
+    <section id="playbook" class="max-w-6xl mx-auto px-4 py-12 sm:py-16">
+      <h2 class="font-extrabold text-3xl sm:text-4xl mb-3">
+        <span class="brand-grad">THE PLAYBOOK</span>
+      </h2>
+      <div class="rounded-2xl card p-6 text-white/90">
+        Run weekly events. Drop surprise giveaways. Highlight the best community posts.
+        Share art people actually use as PFPs. Every moment becomes movement, every wave builds momentum.
       </div>
     </section>
 
-    <!-- Join -->
-    <section id="join" class="max-w-6xl mx-auto px-4 py-12 lg:py-16">
-      <h2 class="font-display text-3xl sm:text-4xl mb-4 text-narpe-teal">Join the Pod</h2>
-      <div class="rounded-2xl p-6" style="background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.15);">
+    <section id="join" class="max-w-6xl mx-auto px-4 py-12 sm:py-16">
+      <h2 class="font-extrabold text-3xl sm:text-4xl mb-3">
+        <span class="brand-grad">Join the Pod</span>
+      </h2>
+      <div class="rounded-2xl glass p-6 text-white shadow-deep">
         <p class="text-white/90">
-          We will not promise the world, we will flood the timeline. $NARR turns holders into a pod that is loud, loyal and impossible to ignore. The penguins can keep the ice. We take the ocean.
+          We will not promise the world, we will flood the timeline. $NARR turns holders into a pod that is loud, loyal and impossible to ignore.
+          The penguins can keep the ice. We take the ocean.
         </p>
         <div class="mt-6 flex flex-wrap gap-3">
-          <a href="https://dexscreener.com/abstract/0x6d16c2a285de1b8652868ed9d36a12f7ffb4573c" class="px-5 py-3 rounded-xl bg-narpe-teal text-narpe-deep font-extrabold drop-shadow-cartoon hover:scale-[1.02] transition">DEXScreener</a>
-          <a href="https://x.com/NarrTheNarwhal?t=MYg_uEeM-DReqKwPrDvA7Q&s=09" class="px-5 py-3 rounded-xl bg-white/10 border border-white/15 hover:bg-white/15 transition">Twitter / X</a>
-          <a href="https://t.me/NarrTheNarwhalonabs" class="px-5 py-3 rounded-xl bg-white/10 border border-white/15 hover:bg-white/15 transition">Telegram</a>
+          <a href="https://dexscreener.com/abstract/0x6d16c2a285de1b8652868ed9d36a12f7ffb4573c"
+             class="px-5 py-3 rounded-xl bg-[#19E3D6] text-black font-bold shadow-lg shadow-[#19E3D6]/30 hover:scale-[1.02] transition">DEXScreener</a>
+          <a href="https://x.com/NarrTheNarwhal"
+             class="px-5 py-3 rounded-xl bg-white/20 border border-white/30 text-white hover:bg-white/30 transition">X</a>
+          <a href="https://t.me/NarrTheNarwhalonabs"
+             class="px-5 py-3 rounded-xl bg-white/20 border border-white/30 text-white hover:bg-white/30 transition">Telegram</a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer class="mt-10 border-t border-white/10">
     <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
       <p class="text-white/60 text-sm">© <span id="year"></span> NARR • Not financial advice</p>
       <div class="flex gap-3">
-        <a href="https://x.com/NarrTheNarwhal?t=MYg_uEeM-DReqKwPrDvA7Q&s=09" class="text-white/80 hover:text-white">Twitter</a>
+        <a href="https://x.com/NarrTheNarwhal" class="text-white/80 hover:text-white">X</a>
         <a href="https://t.me/NarrTheNarwhalonabs" class="text-white/80 hover:text-white">Telegram</a>
-        <a href="Dhttps://dexscreener.com/abstract/0x6d16c2a285de1b8652868ed9d36a12f7ffb4573c" class="text-white/80 hover:text-white">DEXScreener</a>
+        <a href="https://dexscreener.com/abstract/0x6d16c2a285de1b8652868ed9d36a12f7ffb4573c" class="text-white/80 hover:text-white">DEXScreener</a>
       </div>
     </div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    function toggleMenu(){ document.getElementById('drawer').classList.toggle('hidden'); }
+
     function copyCA(){
       const el = document.getElementById('ca');
       const txt = el.textContent.trim();
       navigator.clipboard.writeText(txt).then(()=>{
-        el.insertAdjacentHTML('afterend','<span class="ml-2 text-xs text-white/70">Copied!</span>');
-        setTimeout(()=>{ const s = el.parentElement.querySelector('span.text-xs'); if(s) s.remove(); },1200);
+        const note = document.createElement('span');
+        note.className = 'ml-2 text-xs text-white/80';
+        note.textContent = 'Copied!';
+        el.parentElement.appendChild(note);
+        setTimeout(()=>note.remove(), 1200);
       });
     }
+    window.addEventListener('load', ()=>{
+      const v = document.querySelector('#hero video');
+      try { const p=v.play(); if(p?.catch) p.catch(()=>{}); } catch(e){}
+    });
   </script>
 </body>
 </html>
